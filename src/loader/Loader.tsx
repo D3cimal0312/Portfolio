@@ -72,7 +72,7 @@ const Loader = ({ onDone }: { onDone: () => void }) => {
           key="loader"
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a]"
           exit={{ y: "-100%" }}
-          transition={{ duration: 1.2, ease: "linear" }}
+           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }} 
         >
           <div
             className="absolute inset-0 pointer-events-none"

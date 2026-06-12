@@ -34,7 +34,7 @@ function Field({
             style={{ border: "0.5px solid #c8f500" }}
 
         onFocus={(e) => (e.target.style.borderColor = "rgba(200,245,0,0.6)")}
-        onBlur={(e)  => (e.target.style.borderColor = "rgba(200,245,0,0.25)")}
+        onBlur={(e)  => (e.target.style.borderColor = "rgba(200,245,0,0.45)")}
       />
     </div>
   );
@@ -130,7 +130,7 @@ export default function MessageMail() {
               transition-colors duration-200"
             style={{ border: "0.5px solid #c8f500" }}
             onFocus={(e) => (e.target.style.borderColor = "rgba(200,245,0,0.6)")}
-            onBlur={(e)  => (e.target.style.borderColor = "rgba(200,245,0,0.25)")}
+            onBlur={(e)  => (e.target.style.borderColor = "rgba(200,245,0,0.45)")}
           />
         </div>
 

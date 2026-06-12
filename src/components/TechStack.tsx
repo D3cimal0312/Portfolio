@@ -4,8 +4,7 @@ import Title from "./common/Title";
 import SkillCategoryView from "./SkillCategoryView";
 import { skillCategories } from "../data/SkillPreview";
 
-import { motion } from "framer-motion";
-
+ .
 import { TypeAnimation } from "react-type-animation";
 import { useIntersection } from "react-use";
 import { SnapIcon} from "./common/SnapIcon";

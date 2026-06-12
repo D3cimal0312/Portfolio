@@ -4,7 +4,7 @@ import Title from "./common/Title";
 import SkillCategoryView from "./SkillCategoryView";
 import { skillCategories } from "../data/SkillPreview";
 
- .
+ 
 import { TypeAnimation } from "react-type-animation";
 import { useIntersection } from "react-use";
 import { SnapIcon} from "./common/SnapIcon";

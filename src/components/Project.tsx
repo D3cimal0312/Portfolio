@@ -6,8 +6,10 @@ import HoverImage from "./HoverImage";
 import Title from "./common/Title";
 import Scene3D from "./three/Scene3D";
 import L2rshine from "./common/L2rshine";
-import { Projects } from "../data/Project";
-
+import { Projects,portfolio} from "../data/Projectdata";
+import {
+  SiGithub
+} from "@icons-pack/react-simple-icons";
 const link_class =
   "flex items-center gap-1 pt-1 whitespace-nowrap font-mono text-xs tracking-widest uppercase text-white/80 group-hover:text-lux group-hover:translate-x-1 transition-all duration-200 border-b border-lux hover:border-b transition-all duration-300";
 
@@ -104,7 +106,7 @@ const Project = () => {
                         </span>
                       ))}
                     </div>
-                    <p className="text-sm leading-relaxed text-white/40 max-w-full sm:max-w-[52ch]">
+                    <p className="text-sm leading-relaxed text-white/40 max-w-full sm:max-w-[58ch]">
                       {project_description}
                     </p>
                   </div>
@@ -140,8 +142,24 @@ const Project = () => {
           )}
         </div>
 
+<div className="flex items-center mt-4">
+   <a href={portfolio.github_link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div
+              className="font-mono text-lg tracking-[0.2em] uppercase text-white/40 px-4 py-2
+                border-[0.5px] border-lux/40 hover:border-lux hover:text-white
+                transition-all duration-150 flex gap-2 items-center"
+            >
+              {portfolio.project_name}
+            <SiGithub size={24}  />
+
+            </div>
+          </a>
+</div>
         <p className="mt-6 font-mono text-lg sm:text-xl uppercase text-lux">
-          {Projects.length} projects &mdash; 2026
+          {Projects.length+1} projects &mdash; 2026
         </p>
       </div>
       <div className="hidden md:block">

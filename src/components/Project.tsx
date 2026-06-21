@@ -1,6 +1,6 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import { FaHexagonNodes } from "react-icons/fa6";
-import { useState, memo } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import HoverImage from "./HoverImage";
 import Title from "./common/Title";

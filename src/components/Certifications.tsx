@@ -5,7 +5,9 @@ import { featuredCerts,participationCerts } from "../data/Certi"
 
 export default function Certifications() {
   return (
-    <div className="text-white px-12 py-12 bg-black/10 border-b-2 border-lux"  id="certifications">
+    <div className="text-white py-12 bg-black/10 border-b-2 border-lux
+      px-4 sm:px-6 md:px-24
+    "  id="certifications">
       <Title heading="Certifications" sub_heading="Credentials" />
 
       <div

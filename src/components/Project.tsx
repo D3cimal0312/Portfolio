@@ -1,26 +1,34 @@
-import { FiArrowUpRight } from "react-icons/fi";
-import { FaHexagonNodes } from "react-icons/fa6";
+import { CiGrid41, CiBoxList } from "react-icons/ci";
+
 import { useState } from "react";
 import { useEffect } from "react";
-import HoverImage from "./HoverImage";
 import Title from "./common/Title";
-import L2rshine from "./common/L2rshine";
-import { Projects,portfolio} from "../data/Projectdata";
-import {
-  SiGithub
-} from "@icons-pack/react-simple-icons";
-const link_class =
-  "flex items-center gap-1 pt-1 whitespace-nowrap font-mono text-xs tracking-widest uppercase text-white/80 group-hover:text-lux group-hover:translate-x-1 transition-all duration-200 border-b border-lux hover:border-b transition-all duration-300";
+import { Projects, portfolio } from "../data/Projectdata";
+import { SiGithub } from "@icons-pack/react-simple-icons";
 
+import ProjectGrid from "./ProjectGrid";
+import ProjectList from "./ProjectList";
+
+const button_options = [
+  {
+    icon: CiGrid41,
+    text: "Grid",
+    grid:true,
+  },
+  {
+    icon: CiBoxList,
+    text: "List",
+    grid:false,
+  },
+];
 
 
 const Project = () => {
-  const [hoveredImage, setHoveredImage] = useState("");
-  const [visible, setVisible] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+ const [isGrid,setIsGrid] = useState(true);
 
 
-    useEffect(() => {
+
+  useEffect(() => {
     Projects.forEach(({ image }) => {
       const img = new Image();
       img.src = image;
@@ -32,111 +40,47 @@ const Project = () => {
       className="relative w-full h-full  text-white pt-8 sm:pt-10 md:pt-12 px-4 sm:px-6 md:px-12 bg-black/10 "
       id="projects"
     >
-      {/* <StableScene /> */}
 
       <div className="relative z-10 px-0 sm:px-4 md:px-12  ">
-        <Title heading="My Projects" sub_heading="Selected Work" />
+        <div className="flex justify-between  items-center">
+          <Title heading="My Projects" sub_heading="Selected Work" />
 
-        <div className="border-t border-lux/15">
-          {Projects.map(
-            ({
-              index,
-              project_name,
-              project_description,
-              github_link,
-              live_link,
-              tag,
-              image,
-            }) => (
-              <div
-                key={index}
-                onMouseEnter={() => {
-                  setHoveredImage(image);
-                  setVisible(true);
-                }}
-                onMouseLeave={() => {
-                  setVisible(false);
-                }}
-                onMouseMove={(e) => {
-                  setMousePos({ x: e.clientX, y: e.clientY });
-                }}
-                className="group relative overflow-hidden
-                       py-6 border-b border-lux/15
-                       transition-colors duration-200"
-              >
-                {/* shine sweep */}
-                <L2rshine />
+ <div className="relative flex items-center border border-lux/20 ">
 
-                {/* subtle bg tint */}
-                <div
-                  className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: "rgba(200,245,0,0.018)" }}
-                />
+    {/* sliding indicator */}
+    <div
+      className="absolute top-0.5 bottom-0.5 w-1/2 bg-lux/40 border border-lux/40 transition-all duration-300"
+      style={{ left: isGrid ? "2px" : "calc(50%)" }}
+    />
 
-                <div
-                  data-aos="fade-right"
-                  data-aos-delay={(index - 1) * 100}
-                  className="relative grid grid-cols-1 md:grid-cols-[2.75rem_1fr_auto] items-start gap-3 md:gap-5"
-                >
-                  {/* Index */}
-                  <span className="font-mono text-base md:text-lg tracking-wide pt-1 text-lux/35 group-hover:text-lux transition-colors duration-200 whitespace-nowrap flex justify-between items-center gap-2">
-                    <FaHexagonNodes size={22} />
-                    <span>{String(index).padStart(2, "0")}</span>
-                  </span>
+    {button_options.map(({ icon: Icon, text, grid }) => (
+      <button
+        key={text}
+        onClick={() => setIsGrid(grid)}
+        className={`relative z-10 flex items-center gap-1.5 px-3 py-1.5
+          font-mono text-lg font-semibold tracking-widest uppercase transition-colors duration-200
+          ${isGrid === grid ? "text-white" : "text-lux/30 hover:text-white/60"}`}
+      >
+        <Icon size={20} />
+        {text}
+      </button>
+    ))}
+  </div>
 
-                  {/* Body */}
-                  <div className="flex flex-col gap-1.5">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-lux transition-colors duration-200">
-                        {project_name}
-                      </span>
-                      {tag.map((t) => (
-                        <span
-                          key={t}
-                          className="font-mono text-xs sm:text-sm md:text-base lg:text-lg tracking-widest uppercase text-lux/55 bg-lux/[0.07] border border-lux/20 px-1.5 py-0.5 rounded-[2px]"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="text-sm leading-relaxed text-white/40 max-w-full sm:max-w-[58ch]">
-                      {project_description}
-                    </p>
-                  </div>
-
-                  {/* Links */}
-                  <div className="flex gap-4 flex-row md:flex-col">
-                    {github_link && (
-                      <a
-                        href={github_link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={link_class}
-                      >
-                        Github <FiArrowUpRight className="text-base" />
-                      </a>
-                    )}
-                    {live_link && (
-                      <a
-                        href={live_link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={link_class}
-                      >
-                        Live <FiArrowUpRight className="text-base" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-
-
-              </div>
-            ),
-          )}
         </div>
 
-<div className="flex items-center mt-4">
-   <a href={portfolio.github_link}
+
+<div className="px-4 md:px-12 lg:px-24">
+  {isGrid?(
+    <ProjectGrid/>
+):(
+    <ProjectList/>
+  )}
+</div>
+
+        <div className="flex items-center mt-4 px-4 md:px-12 lg:px-24">
+          <a
+            href={portfolio.github_link}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -146,23 +90,15 @@ const Project = () => {
                 transition-all duration-150 flex gap-2 items-center"
             >
               {portfolio.project_name}
-            <SiGithub size={24}  />
-
+              <SiGithub size={24} />
             </div>
           </a>
-</div>
+        </div>
         <p className="mt-6 font-mono text-lg sm:text-xl uppercase text-lux">
-          {Projects.length+1} projects &mdash; 2026
+          {Projects.length} projects &mdash; 2026
         </p>
       </div>
-      <div className="hidden md:block">
-        <HoverImage
-          image={hoveredImage}
-          x={mousePos.x}
-          y={mousePos.y}
-          visible={visible}
-        />
-      </div>
+
     </div>
   );
 };

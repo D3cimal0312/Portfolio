@@ -23,7 +23,9 @@ const TechStack = () => {
     <div
       ref={sectionRef}
       id="tech-stack"
-      className="text-white px-4 sm:px-6 md:px-12 mt-8 sm:mt-10 md:mt-12 pt-8 sm:pt-10 md:pt-12 border-y-2 border-lux overflow-hidden z-50 bg-black  "
+      className="text-white  mt-8 sm:mt-10 md:mt-12 pt-8 sm:pt-10 md:pt-12 
+      px-4 sm:px-6 md:px-24
+      border-y-2 border-lux overflow-hidden z-50 bg-black  "
     >
       <div className="flex flex-wrap xl:flex-nowrap justify-between">
         <div data-aos="fade-right">
@@ -68,18 +70,7 @@ const TechStack = () => {
             ref={trackRef}
             className="marquee-track flex w-max py-6 sm:py-8 md:py-10 gap-8 sm:gap-12 md:gap-16"
           >
-            {/* {[...items, ...items].map(
-              ({ icon, label, sub_label, color }, i) => (
-                <DraggableIcon
-                  key={i}
-                  icon={icon}
-                  label={label}
-                  sub_label={sub_label}
-                  color={color}
-                  
-                />
-              ),
-            )} */}
+
 
             {[...skillCategories, ...skillCategories].map((category,i) => (
               <div

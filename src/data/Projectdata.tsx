@@ -3,7 +3,7 @@ export const Projects = [
     index: 1,
     project_name: "Expense Tracker",
     project_description:
-      "A web application that helps users track their daily expenses, built with React.js and Node.js.",
+      "A full-stack expense management app built with React.js and Node.js. Features a live dashboard with charts and graphs for visualizing spending trends, category-based grouping (food, rent, transport, etc.), tabular transaction history, and a persistent database backend.",
     github_link: "https://github.com/D3cimal0312/expense_tracker",
     tag: ["Typescript"],
     image: "/expenseTracker.jpg",

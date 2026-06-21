@@ -4,7 +4,6 @@ import { useState, memo } from "react";
 import { useEffect } from "react";
 import HoverImage from "./HoverImage";
 import Title from "./common/Title";
-import Scene3D from "./three/Scene3D";
 import L2rshine from "./common/L2rshine";
 import { Projects,portfolio} from "../data/Projectdata";
 import {
@@ -13,13 +12,7 @@ import {
 const link_class =
   "flex items-center gap-1 pt-1 whitespace-nowrap font-mono text-xs tracking-widest uppercase text-white/80 group-hover:text-lux group-hover:translate-x-1 transition-all duration-200 border-b border-lux hover:border-b transition-all duration-300";
 
-const StableScene = memo(() => (
-  <Scene3D
-    showTorusKnot={false}
-    showWireSphere={false}
-    octahedrons={{ count: 8, seed: 18 }}
-  />
-));
+
 
 const Project = () => {
   const [hoveredImage, setHoveredImage] = useState("");
@@ -39,7 +32,7 @@ const Project = () => {
       className="relative w-full h-full  text-white pt-8 sm:pt-10 md:pt-12 px-4 sm:px-6 md:px-12 bg-black/10 "
       id="projects"
     >
-      <StableScene />
+      {/* <StableScene /> */}
 
       <div className="relative z-10 px-0 sm:px-4 md:px-12  ">
         <Title heading="My Projects" sub_heading="Selected Work" />

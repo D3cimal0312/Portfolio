@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
 const FINAL_TEXT = "ANUJ";
-const INITIAL_LENGTH = 10;
+const INITIAL_LENGTH = 8;
 
 function useScramble(final: string, active: boolean) {
   const [text, setText] = useState(
@@ -17,7 +17,7 @@ function useScramble(final: string, active: boolean) {
     if (!active) return;
 
     let frame = 0;
-    const totalFrames = 80; // higher = slower
+    const totalFrames = 40; // higher = slower
 
     const interval = setInterval(() => {
       frame++;
@@ -40,7 +40,7 @@ function useScramble(final: string, active: boolean) {
       setText(chars);
 
       if (frame >= totalFrames) clearInterval(interval);
-    }, 40);
+    }, 30);
 
     return () => clearInterval(interval);
   }, [active, final]);
@@ -53,11 +53,11 @@ const Loader = ({ onDone }: { onDone: () => void }) => {
   const text = useScramble(FINAL_TEXT, scrambling);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setScrambling(true), 400);
+    const t1 = setTimeout(() => setScrambling(true), 200);
 
-    const t2 = setTimeout(() => setExiting(true), 4000);
+    const t2 = setTimeout(() => setExiting(true), 1500);
 
-    const t3 = setTimeout(() => onDone(), 4600);
+    const t3 = setTimeout(() => onDone(), 2000);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -72,7 +72,7 @@ const Loader = ({ onDone }: { onDone: () => void }) => {
           key="loader"
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a]"
           exit={{ y: "-100%" }}
-           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }} 
+          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
         >
           <div
             className="absolute inset-0 pointer-events-none"
@@ -106,7 +106,7 @@ const Loader = ({ onDone }: { onDone: () => void }) => {
             className="absolute bottom-10 left-0 h-[2px] bg-lux"
             initial={{ width: "0%" }}
             animate={{ width: "100%" }}
-            transition={{ duration: 3.5, ease: "linear" }}
+            transition={{ duration: 1.5, ease: "linear" }}
           />
 
           <motion.p

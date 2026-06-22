@@ -12,22 +12,24 @@ export default function TorusKnot() {
   const tiltY = useRef(0);
 
   // entrance
-  const spinBoost = useRef(4)
-  const opacity = useRef(0)
+  const spinBoost = useRef(4);
+  const opacity = useRef(0);
+  const colorprimary = getComputedStyle(document.documentElement).getPropertyValue("--color-lux");
 
   useFrame((_, delta) => {
     if (!meshRef.current || !groupRef.current) return;
 
     // boost decays from 10 → 0 over ~3s
-    spinBoost.current = Math.max(0, spinBoost.current - delta * 3)
+    spinBoost.current = Math.max(0, spinBoost.current - delta * 3);
 
     // fade in during the first ~1s
-    opacity.current = Math.min(1, opacity.current + delta * 1.5)
-    ;(meshRef.current.material as THREE.MeshBasicMaterial).opacity = opacity.current
+    opacity.current = Math.min(1, opacity.current + delta * 1.5);
+    (meshRef.current.material as THREE.MeshBasicMaterial).opacity =
+      opacity.current;
 
     // spin — fast at start, settles to idle speed
-    meshRef.current.rotation.x += delta * (0.2 + spinBoost.current)
-    meshRef.current.rotation.y += delta * (0.4 + spinBoost.current)
+    meshRef.current.rotation.x += delta * (0.2 + spinBoost.current);
+    meshRef.current.rotation.y += delta * (0.4 + spinBoost.current);
 
     // mouse tilt
     tiltX.current += (mouse.current.y * 0.25 - tiltX.current) * 1;
@@ -43,7 +45,12 @@ export default function TorusKnot() {
     <group ref={groupRef}>
       <mesh ref={meshRef}>
         <torusKnotGeometry args={[1.5, 0.35, 42, 24, 2, 3]} />
-        <meshBasicMaterial color="#c8f500" wireframe transparent opacity={0} />
+        <meshBasicMaterial
+          color={colorprimary}
+          wireframe
+          transparent
+          opacity={0}
+        />
       </mesh>
     </group>
   );

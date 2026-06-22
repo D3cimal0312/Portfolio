@@ -3,6 +3,9 @@
 
 @theme {
   --color-lux: #c8f500;
+  /* /* --color-lux: #A7C080; */
+  /* --color-lux: #8fb05b;  */
+
 
 }
 
@@ -28,18 +31,23 @@ html {
   }
 }
 
-@keyframes bounce-y {
+@keyframes bounce-x2 {
 
   0%,
   100% {
-    transform: translateY(-25%);
+    transform: translateX(-25%);
     animation-timing-function: linear;
   }
 
   50% {
-    transform: translateY(0);
+    transform: translateX(0);
     animation-timing-function: linear;
   }
+}
+
+
+.group:hover .arrow-icon {
+  animation: bounce-x2 1s infinite;
 }
 
 @keyframes marquee {

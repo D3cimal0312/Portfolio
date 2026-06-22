@@ -66,7 +66,7 @@ const ProjectList = () => {
                     </span>
                   ))}
                 </div>
-                <p className="text-sm leading-relaxed text-white/40 max-w-full sm:max-w-[58ch]">
+                <p className="text-sm leading-relaxed text-white/60 max-w-full sm:max-w-[58ch]">
                   {project_description}
                 </p>
               </div>

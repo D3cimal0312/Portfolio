@@ -29,12 +29,11 @@ function Field({
         onChange={onChange}
         placeholder={placeholder}
         className="w-full bg-transparent font-mono text-sm sm:text-base md:text-lg tracking-wide
-          text-white placeholder:text-white/20 outline-none px-3 sm:px-4 py-2.5 sm:py-3
+          text-white placeholder:text-white/50 outline-none px-3 sm:px-4 py-2.5 sm:py-3
           transition-colors duration-200 "
-            style={{ border: "0.5px solid #c8f500" }}
+            style={{ border: "0.5px solid var(--color-lux)" }}
 
-        onFocus={(e) => (e.target.style.borderColor = "rgba(200,245,0,0.6)")}
-        onBlur={(e)  => (e.target.style.borderColor = "rgba(200,245,0,0.45)")}
+        onFocus={(e) => (e.target.style.borderColor = "rgba(var(--color-lux),0.6)")}
       />
     </div>
   );
@@ -126,11 +125,10 @@ export default function MessageMail() {
             placeholder="Tell me what you're building..."
             rows={6}
             className="w-full bg-transparent font-mono text-sm sm:text-base md:text-lg tracking-wide
-              text-white placeholder:text-white/20 resize-none outline-none px-3 sm:px-4 py-2.5 sm:py-3
+              text-white placeholder:text-white/50 resize-none outline-none px-3 sm:px-4 py-2.5 sm:py-3
               transition-colors duration-200"
-            style={{ border: "0.5px solid #c8f500" }}
-            onFocus={(e) => (e.target.style.borderColor = "rgba(200,245,0,0.6)")}
-            onBlur={(e)  => (e.target.style.borderColor = "rgba(200,245,0,0.45)")}
+            style={{ border: "0.5px solid var(--color-lux)" }}
+            onFocus={(e) => (e.target.style.borderColor = "rgba(var(--color-lux),0.6)")}
           />
         </div>
 
@@ -142,7 +140,7 @@ export default function MessageMail() {
           ref={btnRef}
           type="submit"
           disabled={loading}
-          className="mt-2 w-full font-mono text-sm sm:text-base md:text-xl tracking-[0.2em] sm:tracking-[0.35em] md:tracking-[0.5em] uppercase
+          className="mt-2 w-full font-mono text-sm sm:text-base xl:text-xl tracking-[0.2em] sm:tracking-[0.35em] md:tracking-[0.5em] uppercase
             border border-lux font-bold py-3 sm:py-3.5 md:py-4 text-black hover:text-lux bg-lux
             hover:bg-black transition-colors duration-200
             disabled:opacity-50 disabled:cursor-not-allowed"

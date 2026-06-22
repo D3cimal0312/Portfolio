@@ -31,11 +31,11 @@ export function CertCard({
     const x = e.clientX - left;
     const y = e.clientY - top;
 
-    const rx = ((y - height / 2) / (height / 2)) * -20;
-    const ry = ((x - width / 2) / (width / 2)) * 20;
+    const rx = ((y - height / 2) / (height / 2)) * -10;
+    const ry = ((x - width / 2) / (width / 2)) * 10;
 
     card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
-    shine.style.background = `radial-gradient(circle at ${(x / width) * 100}% ${(y / height) * 100}%, rgba(200,245,0,0.10) 0%, transparent 60%)`;
+    shine.style.background = `radial-gradient(circle at ${(x / width) * 100}% ${(y / height) * 100}%, var(--color-lux) -10%, transparent 20%)`;
     shine.style.opacity = "1";
   };
 
@@ -74,12 +74,12 @@ export function CertCard({
             {issuer}
           </span>
           <span
-            className="font-mono text-lg tracking-[0.2em] uppercase px-2 py-0.5"
+            className="font-mono text-sm xl:text-lg tracking-[0.2em] uppercase px-2 py-0.5"
             style={{
               border: "1px solid rgba(200,245,0,0.3)",
-              color: verified ? "#c8f500" : "rgba(255,255,255,0.25)",
+              color: verified ? "var(--color-lux)" : "rgba(255,255,255,0.25)",
               borderColor: verified
-                ? "rgba(200,245,0,0.3)"
+                ? "rgba(var(--color-lux),0.3)"
                 : "rgba(255,255,255,0.1)",
             }}
           >
@@ -96,7 +96,7 @@ export function CertCard({
         </p>
 
         {/* sub */}
-        <p className="font-mono text-lg uppercase tracking-widest text-white/30">
+        <p className="font-mono text-lg uppercase tracking-widest text-white/50">
           {sub}
         </p>
 
@@ -107,9 +107,9 @@ export function CertCard({
             target="_blank"
             rel="noopener noreferrer"
             className="mt-auto pt-2 inline-flex items-center gap-1 font-mono text-[10px]
-            tracking-[0.2em] uppercase text-lux/40 hover:text-lux
-            transition-colors duration-200"
-            style={{ borderBottom: "1px solid rgba(200,245,0,0.2)" }}
+            tracking-[0.2em] uppercase text-lux/70 hover:text-lux
+            transition-colors duration-200 border-b "
+            
           >
             View certificate <FiArrowUpRight />
           </a>

@@ -15,7 +15,6 @@ export default function SkillCategoryView({
 
   return (
     <div className="flex flex-col md:flex-row border border-lux/15 bg-black min-h-68">
-      {/* ── Side tags ── */}
       <div className="flex flex-row md:flex-col shrink-0 border-b md:border-b-0 md:border-r border-lux/15">
         {categories.map((cat) => {
           const isActive = active === cat.id;
@@ -28,25 +27,24 @@ export default function SkillCategoryView({
                          border-r md:border-r-0 md:border-b border-lux/10
                          last:border-0 transition-colors duration-200 text-left"
               style={{
-                color: isActive ? "#c8f500" : "rgba(255,255,255,0.3)",
+                color: isActive ? "var(--color-lux)" : "rgba(255,255,255,0.5)",
                 border: isActive
-                  ? "1px solid #c8f500"
+                  ? "1px solid var(--color-lux)"
                   : "1px solid rgba(255,255,255,0.1)",
-                background: isActive ? "rgba(200,245,0,0.03)" : "transparent",
+                background: isActive
+                  ? "rgba(var(--color-lux),0.03)"
+                  : "transparent",
               }}
             >
-             
-                <span className="text-center"> {cat.label}</span>
-                {/* arrow indicator */}
-                <motion.span
-                  initial={false}
-                  animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -6 }}
-                  transition={{ duration: 0.5 }}
-                  className=" flex justify-center items-center  md:-rotate-90  w-4 h-4   border-lux shrink-0"
-                >
-                  <FaArrowDown />
-                </motion.span>
-             
+              <span className="text-center"> {cat.label}</span>
+              <motion.span
+                initial={false}
+                animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -6 }}
+                transition={{ duration: 0.5 }}
+                className=" flex justify-center items-center  md:-rotate-90  w-4 h-4   border-lux shrink-0"
+              >
+                <FaArrowDown />
+              </motion.span>
             </button>
           );
         })}

@@ -43,12 +43,11 @@ const Contact = () => {
             <div
               className={`
               text-white text-xs md:text-sm font-mono tracking-widest uppercase
-              border border-white -ml-4 mr-2 pl-5 pr-3 py-2 rounded-r-full
+              border border-white -ml-4 mr-2 pl-5 pr-3 py-1.5 rounded-r-full
               transition-all duration-300 ease-in-out whitespace-nowrap overflow-hidden
               ${hovered === label ? "max-w-[120px] opacity-100" : "max-w-0 opacity-0 border-transparent"}
 
               hover:bg-lux
-              hover:text-black
               hover:border-lux
             `}
             >

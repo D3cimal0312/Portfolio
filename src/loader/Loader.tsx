@@ -93,7 +93,7 @@ const Loader = ({ onDone }: { onDone: () => void }) => {
               <span
                 key={i}
                 style={{
-                  color: text[i] === FINAL_TEXT[i] ? "#c8f500" : "#ffffff55",
+                  color: text[i] === FINAL_TEXT[i] ? "var(--color-lux)" : "#ffffff55",
                   transition: "color 0.1s",
                 }}
               >

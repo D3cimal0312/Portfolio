@@ -59,7 +59,7 @@ const Project = () => {
         onClick={() => setIsGrid(grid)}
         className={`relative z-10 flex items-center gap-1.5 px-3 py-1.5
           font-mono text-lg font-semibold tracking-widest uppercase transition-colors duration-200
-          ${isGrid === grid ? "text-white" : "text-lux/30 hover:text-white/60"}`}
+          ${isGrid === grid ? "text-white" : "text-lux hover:text-white/60"}`}
       >
         <Icon size={20} />
         {text}
@@ -85,7 +85,7 @@ const Project = () => {
             rel="noopener noreferrer"
           >
             <div
-              className="font-mono text-lg tracking-[0.2em] uppercase text-white/40 px-4 py-2
+              className="font-mono text-lg tracking-[0.2em] uppercase text-white/60 px-4 py-2
                 border-[0.5px] border-lux/40 hover:border-lux hover:text-white
                 transition-all duration-150 flex gap-2 items-center"
             >

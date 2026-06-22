@@ -69,7 +69,7 @@ const ProjectGrid = () => {
                 ))}
               </div>
 
-              <p className="text-sm leading-relaxed text-white/40">
+              <p className="text-sm leading-relaxed text-white/60">
                 {project_description}
               </p>
 

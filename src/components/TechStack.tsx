@@ -30,7 +30,7 @@ const TechStack = () => {
       <div className="flex flex-wrap xl:flex-nowrap justify-between">
         <div data-aos="fade-right">
           <Title heading="Tech Stack" sub_heading="Technologies" />
-          <p className="mt-4 text-white/40 font-mono text-sm leading-relaxed max-w-2xl">
+          <p className="mt-4 text-white/50 font-mono text-lg leading-relaxed max-w-2xl">
             A curated set of tools and technologies I work with — from crafting
             pixel-perfect interfaces to building scalable backends and shipping
             to production.

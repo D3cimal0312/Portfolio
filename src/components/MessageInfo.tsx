@@ -1,7 +1,9 @@
+import QuickContactCard from "./QuickContactCard";
+
 export default function MessageInfo() {
   return (
     <div
-      className="flex flex-col justify-between p-10 border-r"
+     className="flex flex-col justify-between px-4 lg:px-8 py-10 lg:border-r items-start w-full overflow-hidden"
       style={{ borderColor: "rgba(200,245,0,0.15)" }}
     >
       <div>
@@ -15,12 +17,16 @@ export default function MessageInfo() {
           <br />
           shipping.
         </h2>
-        <p className="mt-8 font-mono text-lg uppercase text-white/30 leading-relaxed  w-full sm:w-full md:max-w-lg">
+        <p className="mt-8 font-mono text-xl uppercase text-white/50 leading-relaxed  w-full sm:w-full md:max-w-lg">
           Whether it's a full-stack product, a side project, or just a
           conversation — I'm always open to what's next.
         </p>
       </div>
 
+
+<div className="w-full" >
+<QuickContactCard/>
+</div>
  
     </div>
   );

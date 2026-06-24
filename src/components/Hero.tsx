@@ -39,10 +39,10 @@ export default function Hero() {
         >
           Building full-stack web experiences with React, Node &amp; MongoDB —
           final-year CSIT student based in{" "}
-          <span className="text-lux text-lg sm:text-xl md:text-2xl font-bold bg-black whitespace-nowrap">
-            Kathmandu, Nepal
+          <span className="text-lux text-lg sm:text-2xl md:text-3xl font-bold bg-black whitespace-nowrap">
+            Kathmandu, Nepal.
           </span>
-          .
+          
         </p>
 
         <div data-aos="fade-up" className="flex gap-4 flex-wrap pt-8">

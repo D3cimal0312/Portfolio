@@ -69,7 +69,7 @@ export function CertCard({
         />
 
         {/* top row */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-4">
           <span className="font-mono text-lg tracking-[0.25em] uppercase text-lux/50">
             {issuer}
           </span>

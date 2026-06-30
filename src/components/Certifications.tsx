@@ -11,7 +11,7 @@ export default function Certifications() {
       <Title heading="Certifications" sub_heading="Credentials" />
 
       <div
-        className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+        className="mt-10 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3"
         style={{ border: "1px solid rgba(200,245,0,0.15)" }}
       >
         {featuredCerts.map((cert, i) => (

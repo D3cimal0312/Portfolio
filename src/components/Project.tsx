@@ -45,11 +45,11 @@ const Project = () => {
         <div className="flex justify-between  items-center">
           <Title heading="My Projects" sub_heading="Selected Work" />
 
- <div className="relative flex items-center border border-lux/20 ">
+ <div className="relative flex items-center border border-secondary/20 ">
 
     {/* sliding indicator */}
     <div
-      className="absolute top-0.5 bottom-0.5 w-1/2 bg-lux/40 border border-lux/40 transition-all duration-300"
+      className="absolute top-0.5 bottom-0.5 w-1/2 bg-secondary/40 border border-secondary/40 transition-all duration-300"
       style={{ left: isGrid ? "2px" : "calc(50%)" }}
     />
 
@@ -59,7 +59,7 @@ const Project = () => {
         onClick={() => setIsGrid(grid)}
         className={`relative z-10 flex items-center gap-1.5 px-3 py-1.5
           font-mono text-lg font-semibold tracking-widest uppercase transition-colors duration-200
-          ${isGrid === grid ? "text-white" : "text-lux hover:text-white/60"}`}
+          ${isGrid === grid ? "text-white" : "text-secondary hover:text-white/60"}`}
       >
         <Icon size={20} />
         {text}

@@ -6,7 +6,7 @@ const L2rshine = () => {
   <div
     className="absolute inset-0 opacity-0 group-hover:opacity-100 animate-shine transition-opacity duration-300"
     style={{
-      background: 'linear-gradient(105deg, transparent 35%, rgba(200,245,0,0.07) 50%, transparent 65%)',
+      background: 'linear-gradient(105deg, transparent 35%, rgba(145, 251, 300, 0.07) 50%, transparent 65%)',
     }}
   />
 </div>

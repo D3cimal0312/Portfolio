@@ -47,7 +47,7 @@ const ProjectList = () => {
               data-aos-delay={(index) * 150}
               className="relative grid grid-cols-1 md:grid-cols-[2.75rem_1fr_auto] items-center gap-3 md:gap-5"
             >
-              <span className="font-mono text-base md:text-lg tracking-wide text-lux/35 group-hover:text-lux transition-colors duration-200 flex justify-between items-center gap-2">
+              <span className="font-mono text-base md:text-lg tracking-wide text-lux group-hover:text-lux transition-colors duration-200 flex justify-between items-center gap-2">
                 <FaHexagonNodes size={20} />
                 <span>{String(index).padStart(2, "0")}</span>
               </span>
@@ -60,7 +60,7 @@ const ProjectList = () => {
                   {tag.map((t) => (
                     <span
                       key={t}
-                      className="font-mono text-xs tracking-widest uppercase text-lux/55 bg-lux/[0.07] border border-lux/20 px-1.5 py-0.5 rounded-[2px]"
+                      className="font-mono text-xs tracking-widest uppercase text-secondary/55 bg-secondary/[0.07] border border-lux/20 px-1.5 py-0.5 rounded-[2px]"
                     >
                       {t}
                     </span>

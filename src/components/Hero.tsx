@@ -8,7 +8,7 @@ const StableScene = memo(() => (
 export default function Hero() {
   return (
     <section
-      className="relative w-full h-screen overflow-clip bg-black/10"
+      className="relative w-full h-screen md:px-10 lg:px-24 xl:px-32 overflow-clip bg-black/10"
       id="hero"
     >
       <StableScene />

@@ -1,7 +1,4 @@
-// CertCard.tsx
-import { useRef } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
-
 type CertCardProps = {
   issuer: string;
   title: string;
@@ -10,7 +7,6 @@ type CertCardProps = {
   verified: boolean;
   index: number;
 };
-
 export function CertCard({
   issuer,
   title,
@@ -19,103 +15,70 @@ export function CertCard({
   verified,
   index,
 }: CertCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const shineRef = useRef<HTMLDivElement>(null);
-
-  const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = cardRef.current;
-    const shine = shineRef.current;
-    if (!card || !shine) return;
-
-    const { left, top, width, height } = card.getBoundingClientRect();
-    const x = e.clientX - left;
-    const y = e.clientY - top;
-
-    const rx = ((y - height / 2) / (height / 2)) * -10;
-    const ry = ((x - width / 2) / (width / 2)) * 10;
-
-    card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(1.02)`;
-    shine.style.background = `radial-gradient(circle at ${(x / width) * 100}% ${(y / height) * 100}%, var(--color-lux) -10%, transparent 20%)`;
-    shine.style.opacity = "1";
-  };
-
-  const onLeave = () => {
-    const card = cardRef.current;
-    const shine = shineRef.current;
-    if (!card || !shine) return;
-    card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
-    shine.style.opacity = "0";
-  };
-
   return (
     <div
-      ref={cardRef}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      className="group relative overflow-hidden flex flex-col gap-3 
-        bg-transparent border-[0.5px] border-lux/30 hover:border-lux/70
-        transition-colors duration-200"
-      style={{ transition: "transform 0.1s linear, border-color 0.2s" }}
+      data-aos="fade-up"
+      data-aos-duration="600"
+      data-aos-delay={Math.min(index * 60, 300)}
+      className="group relative flex h-full flex-col  overflow-hidden
+        bg-black/50 p-6 transition-colors duration-300 hover:bg-lux/4 sm:p-7"
     >
-      <div
-        data-aos="flip-right"
-        data-aos-duration="1000"
-        data-aos-delay={index * 100}
-        className="bg-black/50 w-full h-full p-6"
-      >
-        <div
-          ref={shineRef}
-          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200"
-        />
+      <span className="absolute left-0 top-0 h-full w-0 bg-lux transition-all duration-300 ease-out group-hover:w-[3px]" />
 
-        {/* top row */}
-        <div className="flex items-center justify-between mb-4">
-          <span className="font-mono text-lg tracking-[0.25em] uppercase text-lux/50">
+      <span className=" absolute bottom-1 right-3 select-none font-mono text-6xl font-bold leading-none text-white/10">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      <div className="relative z-10 flex h-full flex-col gap-4">
+        <div className="flex items-start justify-between ">
+          <span className="font-mono text-lg font-medium uppercase tracking-[0.25em] text-lux sm:text-xs">
             {issuer}
           </span>
-          <span
-            className="font-mono text-sm xl:text-lg tracking-[0.2em] uppercase px-2 py-0.5"
-            style={{
-              border: "1px solid rgba(200,245,0,0.3)",
-              color: verified ? "var(--color-lux)" : "rgba(255,255,255,0.25)",
-              borderColor: verified
-                ? "rgba(var(--color-lux),0.3)"
-                : "rgba(255,255,255,0.1)",
-            }}
-          >
-            {verified ? "Verified" : "Completed"}
-          </span>
+
+          {verified ? (
+            <span
+              className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap  px-3 py-1
+            font-mono text-lg uppercase 
+            ${
+              verified
+                ? "border border-lux/30 bg-lux/6 text-lux"
+                : "border border-white/10 bg-white/3 text-white/35"
+            }`}
+            >
+              Verified
+            </span>
+          ) : (
+            "Completed"
+          )}
         </div>
 
-        {/* title */}
-        <p
-          className="font-mono text-sm font-bold uppercase tracking-wide text-white
-        leading-snug group-hover:text-lux transition-colors duration-200"
-        >
-          {title}
-        </p>
+        <div className="">
+          <p className="font-mono text-lg font-bold uppercase  tracking-wide text-secondary/75 transition-colors duration-200 group-hover:text-secondary">
+            {title}
+          </p>
+          <p className="mt-2 font-mono text-lg uppercase tracking-[0.15em] text-white/40">
+            {sub}
+          </p>
+        </div>
 
-        {/* sub */}
-        <p className="font-mono text-lg uppercase tracking-widest text-white/50">
-          {sub}
-        </p>
-
-        {/* link */}
-        {link ? (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-auto pt-2 inline-flex items-center gap-1 font-mono text-[10px]
-            tracking-[0.2em] uppercase text-lux/70 hover:text-lux
-            transition-colors duration-200 border-b "
-            
-          >
-            View certificate <FiArrowUpRight />
-          </a>
-        ) : (
-          <div className="mt-auto pt-2" />
-        )}
+        <div className="flex items-center justify-between border-t border-white/0.40 pt-4">
+          {link ? (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center font-mono text-md uppercase tracking-[0.2em]
+              text-lux transition-all duration-200 hover:text-lux hover:scale-110 "
+            >
+              View certificate
+              <FiArrowUpRight className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          ) : (
+            <span className="font-mono text-md uppercase tracking-[0.2em] text-white/20">
+              No record on file
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );

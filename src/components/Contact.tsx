@@ -57,7 +57,7 @@ const Contact = () => {
             </div>
             <div
               className={`
-              text-white text-xs md:text-sm font-mono tracking-widest uppercase
+              text-secondary text-xs md:text-sm font-mono tracking-widest uppercase
               border border-white -ml-4 mr-2 pl-5 pr-3 py-1.5 rounded-r-full
               transition-all duration-300 ease-in-out whitespace-nowrap overflow-hidden
               ${hovered === label ? "max-w-[120px] opacity-100" : "max-w-0 opacity-0 border-transparent"}
@@ -78,7 +78,7 @@ const Contact = () => {
         <div className="bg-white p-1.5 sm:p-2 border border-white rounded-full flex items-center justify-center  z-10">
           <IoMdMail size={18} color="black" />
         </div>
-        <div className="text-lux text-xs md:text-sm lg:text-base font-mono border border-white px-3 sm:px-4 -ml-4 pl-5 sm:pl-6 py-[4px] rounded-r-full tracking-wide whitespace-nowrap">
+        <div className="text-secondary text-xs md:text-sm lg:text-base font-mono border border-white px-3 sm:px-4 -ml-4 pl-5 sm:pl-6 py-[4px] rounded-r-full tracking-wide whitespace-nowrap">
           <CopyToClipboard text="  anuj.bajracharya0312@gmail.com">
             anuj.bajracharya0312@gmail.com
           </CopyToClipboard>

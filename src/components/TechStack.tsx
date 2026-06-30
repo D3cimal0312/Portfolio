@@ -8,7 +8,6 @@ import { TypeAnimation } from "react-type-animation";
 import { useIntersection } from "react-use";
 import { SnapIcon } from "./common/SnapIcon";
 
-
 const TechStack = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -30,29 +29,31 @@ const TechStack = () => {
       <div className="flex flex-wrap xl:flex-nowrap justify-between">
         <div data-aos="fade-right">
           <Title heading="Tech Stack" sub_heading="Technologies" />
-          <p className="mt-4 text-white/50 font-mono text-lg leading-relaxed max-w-2xl">
+          <p className="  max-w-2xl
+          mt-8 font-mono text-xl uppercase text-white/50 leading-relaxed">
             A curated set of tools and technologies I work with — from crafting
             pixel-perfect interfaces to building scalable backends and shipping
             to production.
           </p>
-          {inView && (
-            <TypeAnimation
-              sequence={["Hold and drag the tech stack below", 1000]}
-              speed={40}
-              className="text-lux font-mono text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mt-4 sm:mt-6 md:mt-8 uppercase tracking-widest block"
-              cursor={true}
-              repeat={0}
-            />
-          )}
+  
         </div>
         <div data-aos="fade-left" className=" mb-10  w-full xl:w-[50%]">
-                    <Title  sub_heading="Quick Preview" mb={false} />
+          <Title sub_heading="Quick Preview" mb={false} />
 
           <SkillCategoryView categories={skillCategories} />
         </div>
       </div>
 
       <div className="relative w-full">
+                {inView && (
+            <TypeAnimation
+              sequence={["Hold and drag the tech stack below", 1000]}
+              speed={40}
+              className="text-secondary font-mono text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mb-4 uppercase tracking-widest block"
+              cursor={true}
+              repeat={Infinity}
+            />
+          )}
         <div className="absolute left-0 top-0 h-full w-8 sm:w-16 md:w-24 z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 h-full w-8 sm:w-16 md:w-24 z-10 pointer-events-none" />
 
@@ -70,13 +71,8 @@ const TechStack = () => {
             ref={trackRef}
             className="marquee-track flex w-max py-6 sm:py-8 md:py-10 gap-8 sm:gap-12 md:gap-16"
           >
-
-
-            {[...skillCategories, ...skillCategories].map((category,i) => (
-              <div
-                key={i}
-                className="skill-row flex gap-8 sm:gap-12 md:gap-16"
-              >
+            {[...skillCategories, ...skillCategories].map((category, i) => (
+              <div key={i} className="skill-row flex gap-8 sm:gap-12 md:gap-16">
                 {[...category.items].map(
                   ({ icon, label, sub_label, color }, i) => (
                     <SnapIcon

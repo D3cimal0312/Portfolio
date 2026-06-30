@@ -28,7 +28,7 @@ const ProjectGrid = () => {
             className="group relative flex flex-col overflow-hidden
             border border-lux/15 hover:border-lux/40
             rounded-2xl min-h-132 cursor-pointer
-            transition-colors duration-300"
+            transition-colors duration-300 bg-black"
             data-aos="fade-up"
             data-aos-delay={index * 150}
           >
@@ -62,14 +62,14 @@ const ProjectGrid = () => {
                 {tag.map((t) => (
                   <span
                     key={t}
-                    className="font-mono text-xs tracking-widest uppercase text-lux/55 bg-lux/[0.07] border border-lux/20 px-1.5 py-0.5 rounded-[2px]"
+                    className="font-mono text-xs tracking-widest uppercase text-secondary/55 bg-secondary/[0.07] border border-secondary/20 px-1.5 py-0.5 rounded-[2px]"
                   >
                     {t}
                   </span>
                 ))}
               </div>
 
-              <p className="text-sm leading-relaxed text-white/60">
+              <p className="text-sm leading-8 tracking-wider text-white/60">
                 {project_description}
               </p>
 

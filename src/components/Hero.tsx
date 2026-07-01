@@ -77,10 +77,10 @@ export default function Hero() {
                    bg-black/50 md:bg-none
                    animate-bounce-x"
       >
-        <span className="w-15 h-1 bg-[#00e5ff] inline-block" />
+        <span className="w-15 h-1 bg-secondary inline-block" />
 
         <span className="   text-white/80 md:text-lux">SCROLL DOWN</span>
-        <span className="w-15 h-1 bg-[#00e5ff] inline-block" />
+        <span className="w-15 h-1 bg-secondary inline-block" />
       </span>
     </section>
   );

@@ -48,6 +48,13 @@ export const featuredCerts = [
     link: "https://coursera.org/share/f1a5f4dcbc01f95b72060c56c83c1674",
     verified: true,
   },
+      {
+    issuer: "Coursera / Packt ",
+    title: "Advanced Selenium Techniques and Framework Introduction",
+    sub: "Python · Selenium",
+    link: "https://coursera.org/share/1ed301d0c5b6a4c10daea5036ffb58fd",
+    verified: true,
+  },
 ]
 
 export const participationCerts = [

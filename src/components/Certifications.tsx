@@ -37,7 +37,7 @@ export default function Certifications() {
         ))}
 </div>
       <p className="mt-6 font-mono text-xl uppercase text-lux">
-        {featuredCerts.length + participationCerts.length} credentials &mdash; 2026
+        {featuredCerts.length} credentials &mdash; 2026
       </p>
     </div>
   )

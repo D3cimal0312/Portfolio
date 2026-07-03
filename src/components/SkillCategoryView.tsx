@@ -14,7 +14,7 @@ export default function SkillCategoryView({
   const activeItems = categories.find((c) => c.id === active)?.items ?? [];
 
   return (
-    <div className="flex flex-col md:flex-row border border-lux/15 bg-black min-h-68">
+    <div className="flex flex-col md:flex-row border border-lux/15 bg-surface min-h-68">
       <div className="flex flex-row md:flex-col shrink-0 border-b md:border-b-0 md:border-r border-lux/15">
         {categories.map((cat) => {
           const isActive = active === cat.id;

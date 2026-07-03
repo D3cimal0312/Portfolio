@@ -35,12 +35,12 @@ function Octahedron({ position, speed, parallaxStrength, color }: OctahedronConf
   useFrame((state, delta) => {
     if (!mesh.current) return;
 
-    scale.current = Math.min(1, scale.current + delta * 2)  
+    scale.current = Math.min(1, scale.current + delta * 2)
     opacity.current = Math.min(1, opacity.current + delta * 2)
     mesh.current.scale.setScalar(scale.current)
     ;(mesh.current.material as THREE.MeshBasicMaterial).opacity = opacity.current
 
-   
+
     mesh.current.rotation.x += delta * speed * 0.6;
     mesh.current.rotation.y += delta * speed * 0.8;
     mesh.current.position.y =
@@ -66,7 +66,7 @@ function generateConfigs(
   halfH: number    // exact visible half-height in world units
 ): OctahedronConfig[] {
   const rng = createSeededRng(seed);
-  const COLORS = ["#00e5ff", "#c8f500"];
+const COLORS = ["#05d9e8", "#ff2ec4"];
   const SPEEDS = [1.2, 0.8, 1.5, 1.0, 1.3];
 
   return Array.from({ length: count }, (_, i) => ({
@@ -130,10 +130,3 @@ export default function Octahedrons({
 }: OctahedronsProps) {
   return <Scene count={count} seed={seed} margin={margin} />;
 }
-
-
-
-// count (default: 11)
-// How many octahedrons to render. Change this to add or remove shapes — count={5} for sparse, count={30} for dense.seed (default: 42)
-// A number that controls the random layout. Same seed always produces the exact same positions, colors, and parallax values. Change it to get a completely different arrangement — seed={1}, seed={99}, anything — without touching anything else.margin (default: 0.05)
-// How much breathing room to leave at the canvas edges, as a fraction of the visible area. 0 means shapes can appear right at the edge, 0.1 means 10% inset on all sides. Keeps shapes from feeling clipped.

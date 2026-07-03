@@ -6,7 +6,7 @@ import MessageMail from "./MessageMail";
 export default function Contact() {
   return (
     <div
-      className="bg-black text-white 
+      className="bg-surface text-white 
          px-4 sm:px-6 md:px-24
        py-16 border-b-2 border-lux"
       id="contact"

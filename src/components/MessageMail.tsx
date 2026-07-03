@@ -142,7 +142,7 @@ export default function MessageMail() {
           disabled={loading}
           className="mt-2 w-full font-mono text-sm sm:text-base xl:text-xl tracking-[0.2em] sm:tracking-[0.35em] md:tracking-[0.5em] uppercase
             border border-lux font-bold py-3 sm:py-3.5 md:py-4 text-black hover:text-lux bg-lux
-            hover:bg-black transition-colors duration-200
+            hover:bg-surface transition-colors duration-200
             disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? "Sending..." : "Send message ↗"}

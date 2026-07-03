@@ -1,7 +1,7 @@
 
 export default function Footer() {
   return (
-    <footer className="bg-black px-12 py-8 flex  flex-wrap gap-4 items-center justify-between border-t border-lux/20">
+    <footer className="bg-surface px-12 py-8 flex  flex-wrap gap-4 items-center justify-between border-t border-lux/20">
 
       <p className="font-mono text-[10px] tracking-[0.22em] uppercase text-white/50 whitespace-nowrap">
         © 2026 

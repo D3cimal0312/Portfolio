@@ -21,7 +21,7 @@ export function CertCard({
       data-aos-duration="600"
       data-aos-delay={Math.min(index * 60, 300)}
       className="group relative flex h-full flex-col  overflow-hidden
-        bg-black/50 p-6 transition-colors duration-300 hover:bg-lux/4 sm:p-7"
+        bg-surface/50 p-6 transition-colors duration-300 hover:bg-lux/4 sm:p-7"
     >
       <span className="absolute left-0 top-0 h-full w-0 bg-lux transition-all duration-300 ease-out group-hover:w-[3px]" />
 

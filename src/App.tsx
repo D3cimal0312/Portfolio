@@ -11,7 +11,6 @@ import TechStack from "./components/TechStack";
 import Certifications from "./components/Certifications";
 import Message from "./components/Message";
 import Footer from "./components/Footer";
-
 AOS.init({
   duration: 1000,
   easing: "ease-in-out",
@@ -36,7 +35,7 @@ export default function App() {
         transition={{ duration: 0.5, ease: "easeIn" }}
       >
         <div
-          className="fixed inset-0 pointer-events-none bg-[#0a0a0a] -z-20"
+          className=" fixed inset-0 pointer-events-none bg-surface -z-20"
           style={{
             backgroundImage: "radial-gradient(#ffffff18 2px, transparent 2px)",
             backgroundSize: "40px 40px",

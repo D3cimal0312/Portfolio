@@ -24,7 +24,7 @@ const TechStack = () => {
       id="tech-stack"
       className="text-white  mt-8 sm:mt-10 md:mt-12 pt-8 sm:pt-10 md:pt-12 
       px-4 sm:px-6 md:px-24
-      border-y-2 border-lux overflow-hidden z-50 bg-black  "
+      border-y-2 border-lux overflow-hidden z-50 bg-surface  "
     >
       <div className="flex flex-wrap xl:flex-nowrap justify-between">
         <div data-aos="fade-right">
@@ -49,7 +49,7 @@ const TechStack = () => {
             <TypeAnimation
               sequence={["Hold and drag the tech stack below", 1000]}
               speed={40}
-              className="text-secondary font-mono text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mb-4 uppercase tracking-widest block"
+              className="text-secondary font-mono text-sm sm:text-xl md:text-2xl leading-relaxed max-w-2xl mb-4 uppercase tracking-widest block"
               cursor={true}
               repeat={Infinity}
             />

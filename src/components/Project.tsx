@@ -37,7 +37,7 @@ const Project = () => {
 
   return (
     <div
-      className="relative w-full h-full  text-white pt-8 sm:pt-10 md:pt-12 px-4 sm:px-6 md:px-12 bg-black/10 "
+      className="relative w-full h-full  text-white pt-8 sm:pt-10 md:pt-12 px-4 sm:px-6 md:px-12 bg-surface/10 "
       id="projects"
     >
 

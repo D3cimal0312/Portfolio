@@ -17,7 +17,7 @@ function useScramble(final: string, active: boolean) {
     if (!active) return;
 
     let frame = 0;
-    const totalFrames = 40; // higher = slower
+    const totalFrames = 36; // higher = slower
 
     const interval = setInterval(() => {
       frame++;
@@ -70,7 +70,7 @@ const Loader = ({ onDone }: { onDone: () => void }) => {
       {!exiting && (
         <motion.div
           key="loader"
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a]"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-surface"
           exit={{ y: "-100%" }}
           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
         >
@@ -93,7 +93,10 @@ const Loader = ({ onDone }: { onDone: () => void }) => {
               <span
                 key={i}
                 style={{
-                  color: text[i] === FINAL_TEXT[i] ? "var(--color-lux)" : "#ffffff55",
+                  color:
+                    text[i] === FINAL_TEXT[i]
+                      ? "var(--color-lux)"
+                      : "#ffffff55",
                   transition: "color 0.1s",
                 }}
               >

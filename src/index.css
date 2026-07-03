@@ -2,17 +2,48 @@
 
 
 @theme {
-  --color-lux: #c8f500;
-    /* --color-lux: #9b6bff; */
-  --color-secondary:#00e5ff;
-  /* --color-lux: #A7C080; */
-  /* --color-lux: #8fb05b;  */
-
+  /* --color-lux: #c8f500; */
+  /* --color-lux: #9b6bff; */
+  --color-lux: #20bcc7;
+  /* --color-secondary: #ff2ec4; */
+  --color-secondary: #00e5ff;
+  --color-surface: #262632;
 
 }
 
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-track-piece {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #20bcc7;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #20bcc7 transparent;
+  }
+}
+
 body {
-  background-color: #0a0a0a;
+  background-color: #262632;
 }
 
 html {
@@ -91,5 +122,35 @@ html {
 
   .animate-shine {
     animation: shine-sweep 2.5s linear infinite;
+  }
+}
+
+
+.scroll-glow-line {
+  background: linear-gradient(to bottom,
+      transparent,
+      var(--color-lux, #05d9e8),
+      var(--color-secondary, #00e5ff));
+
+  animation: scroll-glow-travel 1.5s ease-in-out infinite;
+}
+
+@keyframes scroll-glow-travel {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.3;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(220%);
+    opacity: 0.3;
   }
 }

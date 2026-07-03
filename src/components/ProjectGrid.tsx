@@ -27,8 +27,8 @@ const ProjectGrid = () => {
             }
             className="group relative flex flex-col overflow-hidden
             border border-lux/15 hover:border-lux/40
-            rounded-2xl min-h-132 cursor-pointer
-            transition-colors duration-300 bg-black"
+           min-h-132 cursor-pointer
+            transition-colors duration-300 bg-surface"
             data-aos="fade-up"
             data-aos-delay={index * 150}
           >
@@ -45,7 +45,7 @@ const ProjectGrid = () => {
               {/* badgin */}
               <span
                 className="absolute top-3 left-3 font-mono text-xs tracking-widest px-2 py-0.5
-              text-lux/55 group-hover:text-lux group-hover:bg-black/50
+              text-lux/55 group-hover:text-lux group-hover:bg-surface/50
               transition-all duration-200 flex items-center gap-1.5"
               >
                 <FaHexagonNodes size={14} />

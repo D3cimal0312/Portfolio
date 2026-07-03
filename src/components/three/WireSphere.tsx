@@ -3,7 +3,12 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useMouseTracker } from "./MouseTracker";
 
-export default function WireSphere() {
+interface WireSphereProps {
+  /** Icosahedron subdivision level — controls triangle count (default: 3) */
+  detail?: number;
+}
+
+export default function WireSphere({ detail = 3 }: WireSphereProps) {
   const mesh = useRef<THREE.Mesh>(null);
   const mouse = useMouseTracker();
 
@@ -36,8 +41,8 @@ export default function WireSphere() {
 
   return (
     <mesh ref={mesh} position={[-5, -5, -1]} scale={0}>
-      <icosahedronGeometry args={[0.9, 3]} />
-      <meshBasicMaterial color="#00e5ff" wireframe transparent opacity={0} />
+      <icosahedronGeometry args={[0.9, detail]} />
+      <meshBasicMaterial color="#05d9e8" wireframe transparent opacity={0} />
     </mesh>
   );
 }

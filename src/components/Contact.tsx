@@ -30,7 +30,7 @@ const Contact = () => {
   return (
     <div
       className="w-full relative z-50 bg-surface flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-2 px-4 sm:px-8 md:px-12 lg:px-16 py-4
-    border-y-2 border-lux overflow-hidden mt-1"
+    border-y-2 border-lux overflow-hidden "
     >
       {/* Social icons */}
       <div className="flex items-center">

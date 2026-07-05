@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import DotGrid from "../components/DotGrid";
 const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
 const FINAL_TEXT = "ANUJ";
 const INITIAL_LENGTH = 8;
@@ -74,14 +74,19 @@ const Loader = ({ onDone }: { onDone: () => void }) => {
           exit={{ y: "-100%" }}
           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
         >
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              backgroundImage:
-                "radial-gradient(#ffffff18 2px, transparent 2px)",
-              backgroundSize: "40px 40px",
-            }}
+                <div className="fixed inset-0 pointer-events-none bg-surface -z-20">
+          <DotGrid
+            dotSize={3}
+            gap={32}
+            baseColor="#3a3a4a"
+            activeColor="#20bcc7"
+            proximity={150}
+            shockRadius={250}
+            shockStrength={7}
+            resistance={800}
+            returnDuration={1}
           />
+          </div>
 
           <motion.span
             className="relative z-10 font-black tracking-[0.3em] text-6xl md:text-8xl text-white font-mono"

@@ -22,9 +22,9 @@ interface Scene3DProps {
 }
 
 const TIER_SETTINGS = {
-  low: { sphereDetail: 1, octahedronCount: 7 },
-  mid: { sphereDetail: 2, octahedronCount: 10 },
-  high: { sphereDetail: 3, octahedronCount: 14 },
+  low: { sphereDetail: 1, octahedronCount: 10 },
+  mid: { sphereDetail: 2, octahedronCount: 14 },
+  high: { sphereDetail: 3, octahedronCount: 16 },
 } as const;
 
 export default function Scene3D({
@@ -47,7 +47,7 @@ export default function Scene3D({
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none -z-10">
       <Canvas
-        camera={{ position: [0, 0, 6], fov: 60 }}
+        camera={{ position: [0, 1, 6], fov: 60 }}
         gl={{
           antialias: tier !== "low",
           alpha: true,

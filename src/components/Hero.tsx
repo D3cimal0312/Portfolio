@@ -3,9 +3,8 @@ import { memo } from "react";
 import DotNetwork from "./DotNetwork";
 import ScrollDown from "./ScrollDown";
 
-
 const StableScene = memo(() => (
-  <Scene3D octahedrons={{ count: 12, seed: 39,margin: 2.5}} />
+  <Scene3D octahedrons={{ count: 12, seed: 39, margin: 0.1 }} />
 ));
 
 const STACK = [
@@ -19,16 +18,15 @@ const STACK = [
 
 export default function Hero() {
   return (
-<section
-  className="relative z-0 w-full h-screen overflow-clip bg-surface/70"
-  id="hero"
->
-
+    <section
+      className="relative z-0 w-full h-screen overflow-clip bg-surface"
+      id="hero"
+    >
+      {/* 3d components */}
       <StableScene />
       <DotNetwork />
 
       <div className=" hero relative z-10 flex flex-col items-center justify-center h-full px-6 sm:px-10 text-center">
-      
         <div className="pointer-events-none absolute inset-0 hidden md:block">
           <span className="absolute top-[12%] left-[8%] w-10 h-10 border-t-2 border-l-2 border-secondary" />
           <span className="absolute top-[12%] right-[8%] w-10 h-10 border-t-2 border-r-2 border-secondary" />
@@ -115,10 +113,7 @@ export default function Hero() {
         </div>
       </div>
 
-
-      <ScrollDown/>
-      
-      
+      <ScrollDown />
     </section>
   );
 }

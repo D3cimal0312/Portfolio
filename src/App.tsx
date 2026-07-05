@@ -11,6 +11,7 @@ import TechStack from "./components/TechStack";
 import Certifications from "./components/Certifications";
 import Message from "./components/Message";
 import Footer from "./components/Footer";
+import DotGrid from "./components/DotGrid";
 AOS.init({
   duration: 1000,
   easing: "ease-in-out",
@@ -34,13 +35,27 @@ export default function App() {
         animate={{ opacity: loaded ? 1 : 0 }}
         transition={{ duration: 0.5, ease: "easeIn" }}
       >
-        <div
+        {/* <div
           className=" fixed inset-0 pointer-events-none bg-surface -z-20"
           style={{
             backgroundImage: "radial-gradient(#ffffff18 2px, transparent 2px)",
             backgroundSize: "40px 40px",
           }}
-        />
+        /> */}
+        <div className="fixed inset-0 pointer-events-none bg-surface -z-20">
+          <DotGrid
+            dotSize={3}
+            gap={32}
+            baseColor="#3a3a4a"
+            activeColor="#20bcc7"
+            proximity={150}
+            shockRadius={250}
+            shockStrength={7}
+            resistance={800}
+            returnDuration={1}
+          />
+        </div>
+
         <Hero />
         <Navbar />
         <Contact />

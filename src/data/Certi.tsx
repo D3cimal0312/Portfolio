@@ -45,7 +45,7 @@ export const featuredCerts = [
     issuer: "Coursera / Packt ",
     title: "Selenium Python Automation Testing and Frameworks",
     sub: "Testing · Automation · Python · Frameworks",
-    link: "https://www.coursera.org/account/accomplishments/verify/GL1LEE0P5HGA",
+    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/662BY0CAAEY9",
     verified: true,
   },
 ];

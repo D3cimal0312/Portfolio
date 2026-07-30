@@ -3,7 +3,7 @@ export const featuredCerts = [
     issuer: "Cisco / NetAcad",
     title: "Intro to Cybersecurity",
     sub: "Network Security · Fundamentals",
-    link:"/certs/intro_to_cyber_sec.pdf" ,
+    link: "/certs/intro_to_cyber_sec.pdf",
     verified: true,
   },
   {
@@ -34,34 +34,18 @@ export const featuredCerts = [
     link: "https://verify.skilljar.com/c/6wktybgptmwq",
     verified: true,
   },
-    {
+  {
     issuer: "Claude / Anthropic",
     title: "AI Fluency: Framework & Foundations",
     sub: "AI · Prompt Engineering",
     link: "https://verify.skilljar.com/c/scvg82kuuns7",
     verified: true,
   },
-    {
+  {
     issuer: "Coursera / Packt ",
-    title: "Introduction to Python and Basic Selenium Setup",
-    sub: "Python · Selenium",
-    link: "https://coursera.org/share/f1a5f4dcbc01f95b72060c56c83c1674",
+    title: "Selenium Python Automation Testing and Frameworks",
+    sub: "Testing · Automation · Python · Frameworks",
+    link: "https://www.coursera.org/account/accomplishments/verify/GL1LEE0P5HGA",
     verified: true,
   },
-      {
-    issuer: "Coursera / Packt ",
-    title: "Advanced Selenium Techniques and Framework Introduction",
-    sub: "Python · Selenium",
-    link: "https://coursera.org/share/1ed301d0c5b6a4c10daea5036ffb58fd",
-    verified: true,
-  },
-]
-
-export const participationCerts = [
-  { label: "Code for Progress",
-    link: "/certs/participation/code_for_progress.png",
-  },
-  { label: "TEDx Participation",
-    link: "/certs/participation/tedx.pdf",
-  },
-]
+];

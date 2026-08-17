@@ -4,7 +4,7 @@ import {
   SiTailwindcss, SiBootstrap, SiFramer, SiFigma,
   SiNodedotjs, SiExpress, SiMongodb, SiGraphql,
   SiGit, SiGithub, SiVercel, SiPostman, SiSelenium,
-  SiMantine, SiC,
+  SiMantine, SiC, SiNextdotjs,
 } from "@icons-pack/react-simple-icons";
 
 export interface SkillItem {
@@ -30,6 +30,7 @@ export const skillCategories: SkillCategory[] = [
       { icon: SiJavascript,  label: "JavaScript",    color: "#F7DF1E" },
       { icon: SiTypescript,  label: "TypeScript",    color: "#3178C6" },
       { icon: SiReact,       label: "React",         color: "#61DAFB" },
+      { icon: SiNextdotjs,   label: "Next.js",       color: "#ffffff" },
       { icon: SiTailwindcss, label: "Tailwind",      color: "#06B6D4" },
       { icon: SiBootstrap,   label: "Bootstrap",     color: "#7952B3" },
       { icon: SiFramer,      label: "Framer Motion", color: "#ffffff" },

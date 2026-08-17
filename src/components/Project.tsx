@@ -70,7 +70,7 @@ const Project = () => {
         </div>
 
 
-<div className="px-4 md:px-12 lg:px-24">
+<div className="px-4  ">
   {isGrid?(
     <ProjectGrid/>
 ):(

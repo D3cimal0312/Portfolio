@@ -1,4 +1,24 @@
 export const featuredCerts = [
+    {
+    issuer: "Udemy",
+    title: "The Complete Full-Stack Web Development Bootcamp",
+    sub: "Angela Yu · Full Stack",
+    link: "https://www.udemy.com/certificate/UC-fff2559b-935f-4f18-8819-3b500d2ad5b1/",
+    verified: true,
+  },
+    {
+    issuer: "Coursera / Packt ",
+    title: "Selenium Python Automation Testing and Frameworks",
+    sub: "Testing · Automation · Python · Frameworks",
+    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/662BY0CAAEY9",
+    verified: true,
+  },
+    {
+    issuer: "TechAxis",
+    title: "MERN Stack Training",
+    sub: "React · Express · Node · MongoDB",
+    link: "/certs/mernstack_techaxis.pdf",
+  },
   {
     issuer: "Cisco / NetAcad",
     title: "Intro to Cybersecurity",
@@ -20,13 +40,7 @@ export const featuredCerts = [
     link: "https://www.hackerrank.com/certificates/c6f92ba739d0",
     verified: true,
   },
-  {
-    issuer: "Udemy",
-    title: "The Complete Full-Stack Web Development Bootcamp",
-    sub: "Angela Yu · Full Stack",
-    link: "https://www.udemy.com/certificate/UC-fff2559b-935f-4f18-8819-3b500d2ad5b1/",
-    verified: true,
-  },
+
   {
     issuer: "Claude / Anthropic",
     title: "Claude 101",
@@ -41,11 +55,5 @@ export const featuredCerts = [
     link: "https://verify.skilljar.com/c/scvg82kuuns7",
     verified: true,
   },
-  {
-    issuer: "Coursera / Packt ",
-    title: "Selenium Python Automation Testing and Frameworks",
-    sub: "Testing · Automation · Python · Frameworks",
-    link: "https://www.coursera.org/account/accomplishments/specialization/certificate/662BY0CAAEY9",
-    verified: true,
-  },
+
 ];

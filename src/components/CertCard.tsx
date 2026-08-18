@@ -48,7 +48,11 @@ export function CertCard({
               Verified
             </span>
           ) : (
-            "Completed"
+            <span
+              className={`flex shrink-0 items-center gap-1.5 whitespace-nowrap  px-3 py-1
+            font-mono text-lg uppercase border border-lux/30 bg-lux/6 text-lux`}>
+            Completed
+            </span>
           )}
         </div>
 

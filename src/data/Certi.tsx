@@ -18,6 +18,7 @@ export const featuredCerts = [
     title: "MERN Stack Training",
     sub: "React · Express · Node · MongoDB",
     link: "/certs/mernstack_techaxis.pdf",
+    verified: false,
   },
   {
     issuer: "Cisco / NetAcad",

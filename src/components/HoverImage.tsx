@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import ProjectImage from "./common/ProjectImage";
 
 interface HoverImageProps {
-  image?: string;
+  image?: string[];
   x: number;
   y: number;
   visible: boolean;
@@ -27,10 +28,10 @@ const HoverImage = ({ image, x, y, visible }: HoverImageProps) => {
         damping: 25,
       }}
     >
-      <img
-        src={image ? image : "/image_not_available_placeholder.png"}
+      <ProjectImage
+        images={image}
         alt="project_image"
-        className="w-100 h-75  object-cover  object-top"
+        className="w-100 h-75 object-cover object-top"
       />
     </motion.div>
   );

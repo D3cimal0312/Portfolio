@@ -1,4 +1,5 @@
 import { CiGrid41, CiBoxList } from "react-icons/ci";
+import { AnimatePresence } from "framer-motion";
 
 import { useState } from "react";
 import { useEffect } from "react";
@@ -8,6 +9,7 @@ import { SiGithub } from "@icons-pack/react-simple-icons";
 
 import ProjectGrid from "./ProjectGrid";
 import ProjectList from "./ProjectList";
+import ProjectModel, { type Project as ProjectType } from "./ProjectModel";
 
 const button_options = [
   {
@@ -24,14 +26,17 @@ const button_options = [
 
 
 const Project = () => {
- const [isGrid,setIsGrid] = useState(true);
+  const [isGrid, setIsGrid] = useState(true);
+  const [selected, setSelected] = useState<ProjectType | null>(null);
 
 
 
   useEffect(() => {
     Projects.forEach(({ image }) => {
-      const img = new Image();
-      img.src = image;
+      image.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
     });
   }, []);
 
@@ -72,13 +77,19 @@ const Project = () => {
 
 <div className="px-4  ">
   {isGrid?(
-    <ProjectGrid/>
-):(
-    <ProjectList/>
+    <ProjectGrid onSelect={setSelected}/>
+  ):(
+    <ProjectList onSelect={setSelected}/>
   )}
 </div>
 
-        <div className="flex items-center mt-4 px-4 md:px-12 lg:px-24">
+        <AnimatePresence>
+          {selected && (
+            <ProjectModel project={selected} onClose={() => setSelected(null)} />
+          )}
+        </AnimatePresence>
+
+        <div className="flex items-center mt-4 px-4">
           <a
             href={portfolio.github_link}
             target="_blank"

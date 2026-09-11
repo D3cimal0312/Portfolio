@@ -23,7 +23,7 @@ export function CertCard({
       className="group relative flex h-full flex-col  overflow-hidden
         bg-surface/50 p-6 transition-colors duration-300 hover:bg-lux/4 sm:p-7"
     >
-      <span className="absolute left-0 top-0 h-full w-0 bg-lux transition-all duration-300 ease-out group-hover:w-[3px]" />
+      <span className="absolute left-0 top-0 h-full w-0 bg-lux transition-all duration-300 ease-out " />
 
       <span className=" absolute bottom-1 right-3 select-none font-mono text-6xl font-bold leading-none text-white/10">
         {String(index + 1).padStart(2, "0")}

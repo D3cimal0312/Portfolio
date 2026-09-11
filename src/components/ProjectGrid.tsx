@@ -1,16 +1,18 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import { FaHexagonNodes } from "react-icons/fa6";
 import L2rshine from "./common/L2rshine";
+import ProjectImage from "./common/ProjectImage";
 import { Projects } from "../data/Projectdata";
+import type { Project } from "./ProjectModel";
 
 const link_class =
   "flex items-center gap-1 pt-1 whitespace-nowrap font-mono text-xs tracking-widest uppercase text-white/80 group-hover:text-lux group-hover:translate-x-1 transition-all duration-200 border-b border-lux hover:border-b transition-all duration-300";
 
-const ProjectGrid = () => {
+const ProjectGrid = ({ onSelect }: { onSelect: (project: Project) => void }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-8 ">
-      {Projects.map(
-        ({
+      {Projects.map((project) => {
+        const {
           index,
           project_name,
           project_description,
@@ -18,13 +20,11 @@ const ProjectGrid = () => {
           live_link,
           tag,
           image,
-        }) => (
+        } = project;
+        return (
           <div
             key={index}
-            onClick={() =>
-              github_link &&
-              window.open(github_link, "_blank", "noopener,noreferrer")
-            }
+            onClick={() => onSelect(project)}
             className="group relative flex flex-col overflow-hidden
             border border-lux/15 hover:border-lux/40
            min-h-132 cursor-pointer
@@ -35,8 +35,8 @@ const ProjectGrid = () => {
             <L2rshine />
 
             <div className="relative w-full h-58 bg-zinc-900 ">
-              <img
-                src={image}
+              <ProjectImage
+                images={image}
                 alt={project_name}
                 className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
               />
@@ -62,7 +62,7 @@ const ProjectGrid = () => {
                 {tag.map((t) => (
                   <span
                     key={t}
-                    className="font-mono text-xs tracking-widest uppercase text-secondary/55 bg-secondary/[0.07] border border-secondary/20 px-1.5 py-0.5 rounded-[2px]"
+                    className="font-mono text-xs tracking-widest uppercase text-secondary/55 bg-secondary/[0.07] border border-secondary/20 px-1.5 py-0.5 rounded-xs"
                   >
                     {t}
                   </span>
@@ -99,8 +99,8 @@ const ProjectGrid = () => {
               </div>
             </div>
           </div>
-        ),
-      )}
+        );
+      })}
     </div>
   );
 };

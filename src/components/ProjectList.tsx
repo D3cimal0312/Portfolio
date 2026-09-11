@@ -4,39 +4,43 @@ import { useState, useEffect } from "react";
 import HoverImage from "./HoverImage";
 import L2rshine from "./common/L2rshine";
 import { Projects } from "../data/Projectdata";
+import type { Project } from "./ProjectModel";
 
 const link_class =
   "flex items-center gap-1 pt-1 whitespace-nowrap font-mono text-xs tracking-widest uppercase text-white/80 group-hover:text-lux group-hover:translate-x-1 transition-all duration-200 border-b border-lux";
 
-const ProjectList = () => {
-  const [hoveredImage, setHoveredImage] = useState("");
+const ProjectList = ({ onSelect }: { onSelect: (project: Project) => void }) => {
+  const [hoveredImage, setHoveredImage] = useState<string[] | undefined>(undefined);
   const [visible, setVisible] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     Projects.forEach(({ image }) => {
-      const img = new Image();
-      img.src = image;
+      image.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
     });
   }, []);
 
   return (
     <div>
       <div className="border-t border-lux/15">
-        {Projects.map(({ index, project_name, project_description, github_link, live_link, tag, image }) => (
+        {Projects.map((project) => {
+          const { index, project_name, project_description, github_link, live_link, tag, image } = project;
+          return (
           <div
             key={index}
             onMouseEnter={() => { setHoveredImage(image); setVisible(true); }}
             onMouseLeave={() => setVisible(false)}
             onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
-            onClick={() => github_link && window.open(github_link, "_blank", "noopener,noreferrer")}
+            onClick={() => onSelect(project)}
             className="group relative overflow-hidden cursor-pointer
               py-5 border-b border-lux/15
               transition-colors duration-200"
           >
             <L2rshine />
 
-            {/* lux bg tint */}
             <div
               className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               style={{ background: "rgba(200,245,0,0.018)" }}
@@ -52,7 +56,7 @@ const ProjectList = () => {
                 <span>{String(index).padStart(2, "0")}</span>
               </span>
 
-              <div className="flex flex-col gap-1.5">
+              <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-lux transition-colors duration-200">
                     {project_name}
@@ -60,7 +64,7 @@ const ProjectList = () => {
                   {tag.map((t) => (
                     <span
                       key={t}
-                      className="font-mono text-xs tracking-widest uppercase text-secondary/55 bg-secondary/[0.07] border border-lux/20 px-1.5 py-0.5 rounded-[2px]"
+                      className="font-mono text-xs tracking-widest uppercase text-secondary/55 bg-secondary/[0.07] border border-lux/20 px-2 py-0.5 rounded-xs"
                     >
                       {t}
                     </span>
@@ -97,7 +101,8 @@ const ProjectList = () => {
               </div>
             </div>
           </div>
-        ))}
+          );
+        })}
 
 
       </div>

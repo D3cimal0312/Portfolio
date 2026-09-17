@@ -1,35 +1,14 @@
-import { CiGrid41, CiBoxList } from "react-icons/ci";
-import { AnimatePresence } from "framer-motion";
+"use client";
 
-import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Title from "./common/Title";
 import { Projects, portfolio } from "../data/Projectdata";
 import { SiGithub } from "@icons-pack/react-simple-icons";
-
-import ProjectGrid from "./ProjectGrid";
 import ProjectList from "./ProjectList";
-import ProjectModel, { type Project as ProjectType } from "./ProjectModel";
-
-const button_options = [
-  {
-    icon: CiGrid41,
-    text: "Grid",
-    grid:true,
-  },
-  {
-    icon: CiBoxList,
-    text: "List",
-    grid:false,
-  },
-];
-
 
 const Project = () => {
-  const [isGrid, setIsGrid] = useState(true);
-  const [selected, setSelected] = useState<ProjectType | null>(null);
-
-
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [headerHeight, setHeaderHeight] = useState(80);
 
   useEffect(() => {
     Projects.forEach(({ image }) => {
@@ -40,77 +19,45 @@ const Project = () => {
     });
   }, []);
 
+  useLayoutEffect(() => {
+    if (!headerRef.current) return;
+    const update = () => setHeaderHeight(headerRef.current?.offsetHeight ?? 80);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(headerRef.current);
+    return () => ro.disconnect();
+  }, []);
+
   return (
-    <div
-      className="relative w-full h-full  text-white pt-8 sm:pt-10 md:pt-12 px-4 sm:px-6 md:px-12 bg-surface/10 "
+    <section
       id="projects"
+      className="relative w-full bg-surface/10 pt-14 text-white sm:pt-16 md:pt-20 px-4 pb-16 sm:px-6 sm:pb-20 md:px-12 md:pb-24"
     >
-
-      <div className="relative z-10 px-0 sm:px-4 md:px-12  ">
-        <div className="flex justify-between  items-center">
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <header
+          ref={headerRef}
+          className="relative z-30 mb-6 flex flex-wrap items-end justify-between gap-4 py-4 md:mb-10"
+        >
           <Title heading="My Projects" sub_heading="Selected Work" />
+        </header>
 
- <div className="relative flex items-center border border-secondary/20 ">
+        <ProjectList headerRef={headerRef} stickyOffset={headerHeight} />
 
-    {/* sliding indicator */}
-    <div
-      className="absolute top-0.5 bottom-0.5 w-1/2 bg-secondary/40 border border-secondary/40 transition-all duration-300"
-      style={{ left: isGrid ? "2px" : "calc(50%)" }}
-    />
-
-    {button_options.map(({ icon: Icon, text, grid }) => (
-      <button
-        key={text}
-        onClick={() => setIsGrid(grid)}
-        className={`relative z-10 flex items-center gap-1.5 px-3 py-1.5
-          font-mono text-lg font-semibold tracking-widest uppercase transition-colors duration-200
-          ${isGrid === grid ? "text-white" : "text-secondary hover:text-white/60"}`}
-      >
-        <Icon size={20} />
-        {text}
-      </button>
-    ))}
-  </div>
-
-        </div>
-
-
-<div className="px-4  ">
-  {isGrid?(
-    <ProjectGrid onSelect={setSelected}/>
-  ):(
-    <ProjectList onSelect={setSelected}/>
-  )}
-</div>
-
-        <AnimatePresence>
-          {selected && (
-            <ProjectModel project={selected} onClose={() => setSelected(null)} />
-          )}
-        </AnimatePresence>
-
-        <div className="flex items-center mt-4 px-4">
+        <footer className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-lux/10 pt-6">
           <a
             href={portfolio.github_link}
             target="_blank"
             rel="noopener noreferrer"
+            className="flex items-center gap-2 px-3 py-2 font-mono text-xs uppercase text-white/60
+              transition-colors duration-150 hover:border-lux hover:text-white
+              border border-lux/40 "
           >
-            <div
-              className="font-mono text-lg tracking-[0.2em] uppercase text-white/60 px-4 py-2
-                border-[0.5px] border-lux/40 hover:border-lux hover:text-white
-                transition-all duration-150 flex gap-2 items-center"
-            >
-              {portfolio.project_name}
-              <SiGithub size={24} />
-            </div>
+            {portfolio.project_name}
+            <SiGithub size={16} aria-hidden />
           </a>
-        </div>
-        <p className="mt-6 font-mono text-lg sm:text-xl uppercase text-lux">
-          {Projects.length} projects &mdash; 2026
-        </p>
+        </footer>
       </div>
-
-    </div>
+    </section>
   );
 };
 

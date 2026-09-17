@@ -23,7 +23,19 @@ export default function App() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const snapTop = () => {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+    snapTop();
+    const raf = requestAnimationFrame(snapTop);
+    const t1 = window.setTimeout(snapTop, 100);
+    const t2 = window.setTimeout(snapTop, 900);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+    };
   }, []);
   return (
     <>
@@ -35,13 +47,6 @@ export default function App() {
         animate={{ opacity: loaded ? 1 : 0 }}
         transition={{ duration: 0.5, ease: "easeIn" }}
       >
-        {/* <div
-          className=" fixed inset-0 pointer-events-none bg-surface -z-20"
-          style={{
-            backgroundImage: "radial-gradient(#ffffff18 2px, transparent 2px)",
-            backgroundSize: "40px 40px",
-          }}
-        /> */}
         <div className="fixed inset-0 pointer-events-none bg-surface -z-20">
           <DotGrid
             dotSize={3}

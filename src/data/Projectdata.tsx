@@ -9,7 +9,6 @@ export const Projects = [
       "NextAuth.js with dual Credentials providers (user + admin) and RBAC gating the admin dashboard",
       "Interactive Pizza Builder with a multi-step cart and Khalti payment integration, verified server-side",
       "node-cron scheduled inventory checks trigger Nodemailer email alerts when stock runs low",
-      "Kanban-style admin dashboard for moving orders through their lifecycle",
       "Zustand for client state, MongoDB/Mongoose for data, Tailwind CSS v4 for styling",
     ],
     github_link: "https://github.com/D3cimal0312/sizzly",
@@ -41,6 +40,25 @@ export const Projects = [
   },
   {
     index: 3,
+    project_name: "SecureChat",
+    project_description:
+      "An end-to-end encrypted real-time chat app with ECDH key exchange and AES-GCM message encryption, ensuring only participants can ever read messages.",
+    details: [
+      "End-to-end encryption with ECDH (P-256) + AES-GCM 256-bit via Web Crypto API, private keys never leave the browser",
+      "Real-time messaging with Socket.io and encrypted message persistence in MongoDB",
+      "Secure auth with NextAuth + bcryptjs, per-user public key exchange for shared secrets",
+      "Room-based chat UI built with Next.js, Zustand, and Tailwind CSS",
+    ],
+    github_link: "https://github.com/D3cimal0312/secure-chat",
+    tag: ["Security", "Real-time", "Next.js"],
+    image: [
+      "secure-chat/secure-chat.png",
+      "secure-chat/secure-chat-allroom.png",
+      "secure-chat/secure-chat-register.png",
+    ],
+  },
+  {
+    index: 4,
     project_name: "Expense Tracker",
     project_description:
       "A full-stack expense management app built with React.js and Node.js. Features a live dashboard with charts and graphs for visualizing spending trends, category-based grouping (food, rent, transport, etc.), tabular transaction history, and a persistent database backend.",
@@ -56,7 +74,7 @@ export const Projects = [
     image: ["expenseTracker/expenseTracker.jpg"],
   },
   {
-    index: 4,
+    index: 5,
     project_name: "CinePro",
     project_description:
       "A movie discovery app that lets users search and filter films using a free movie API, making it easy to find titles by genre, rating, and other criteria.",

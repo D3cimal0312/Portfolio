@@ -15,8 +15,7 @@ export default function Contact() {
 
       <div
         className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-0
-        "
-        style={{ border: "1px solid rgba(200,245,0,0.15)" }}
+        border border-lux/50"
         data-aos="fade-up"
       >
         <MessageInfo />

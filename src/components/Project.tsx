@@ -41,7 +41,10 @@ const Project = () => {
           <Title heading="My Projects" sub_heading="Selected Work" />
         </header>
 
-        <ProjectList headerRef={headerRef} stickyOffset={headerHeight} />
+        <ProjectList
+          headerRef={headerRef as React.RefObject<HTMLDivElement>}
+          stickyOffset={headerHeight}
+        />
 
         <footer className="mt-14 flex flex-wrap items-center justify-between gap-4 border-t border-lux/10 pt-6">
           <a

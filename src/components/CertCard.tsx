@@ -1,4 +1,3 @@
-import { div } from "framer-motion/client";
 import { FiArrowUpRight } from "react-icons/fi";
 type CertCardProps = {
   issuer: string;

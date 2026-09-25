@@ -3,7 +3,7 @@ type CertCardProps = {
   issuer: string;
   title: string;
   sub: string;
-  link: string | null;
+  link: string | undefined;
   verified: boolean;
   index: number;
 };

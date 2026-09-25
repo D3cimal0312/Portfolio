@@ -14,6 +14,8 @@ const STACK = [
   "Express",
   "Tailwind",
   "TypeScript",
+  "Next.js",
+
 ];
 
 export default function Hero() {
@@ -56,12 +58,12 @@ export default function Hero() {
 
           <p
             data-aos="fade-up"
-            className="text-slate-300 text-sm sm:text-base md:text-lg mt-6 mb-4 font-mono leading-relaxed max-w-lg
-            bg-surface/50 px-2"
+            className="text-white text-lg sm:text-lg md:text-xl mt-6 mb-4 font-mono leading-relaxed max-w-xl
+            bg-surface/80 px-2"
           >
             Building full-stack web experiences with React, Node &amp; MongoDB —
             final-year CSIT student based in{" "}
-            <span className="text-lux text-lg sm:text-2xl md:text-3xl font-bold bg-surface whitespace-nowrap px-1">
+            <span className="block text-lux text-lg sm:text-2xl md:text-3xl font-bold bg-surface whitespace-nowrap px-1">
               Kathmandu, Nepal.
             </span>
           </p>
@@ -74,7 +76,8 @@ export default function Hero() {
               <span
                 key={tech}
                 className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-lux/90
-                           border border-lux/30 px-3 py-1.5 bg-surface/60 hover:bg-lux/10
+                           border border-lux/30 px-3 py-1.5 bg-surface/60 hover:bg-surface hover:text-lux
+                           hover:scale-[105%]
                            hover:border-lux transition-colors duration-200"
               >
                 {tech}

@@ -3,8 +3,8 @@ import QuickContactCard from "./QuickContactCard";
 export default function MessageInfo() {
   return (
     <div
-     className="flex flex-col justify-between px-4 lg:px-8 py-10 lg:border-r items-start w-full overflow-hidden"
-      style={{ borderColor: "rgba(200,245,0,0.15)" }}
+     className="flex flex-col justify-between px-4 lg:px-8 py-10 lg:border-r border-lux/40 items-start w-full overflow-hidden"
+
     >
       <div>
         <p className="font-mono  text-sm tracking-[0.25em] uppercase text-lux/50 mb-6 whitespace-nowrap">

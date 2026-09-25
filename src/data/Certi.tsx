@@ -1,19 +1,26 @@
 export const featuredCerts = [
-    {
+  {
     issuer: "Udemy",
     title: "The Complete Full-Stack Web Development Bootcamp",
     sub: "Angela Yu · Full Stack",
     link: "https://www.udemy.com/certificate/UC-fff2559b-935f-4f18-8819-3b500d2ad5b1/",
     verified: true,
   },
-    {
+  {
     issuer: "Coursera / Packt ",
     title: "Selenium Python Automation Testing and Frameworks",
     sub: "Testing · Automation · Python · Frameworks",
     link: "https://www.coursera.org/account/accomplishments/specialization/certificate/662BY0CAAEY9",
     verified: true,
   },
-    {
+  {
+    issuer: "Meta",
+    title: "Introduction to Back-End Development",
+    sub: "React · Back-End Web ",
+    link: "https://www.coursera.org/account/accomplishments/verify/X7VYVPZYY1S9",
+    verified: true,
+  },
+  {
     issuer: "TechAxis",
     title: "MERN Stack Training",
     sub: "React · Express · Node · MongoDB",
@@ -56,5 +63,4 @@ export const featuredCerts = [
     link: "https://verify.skilljar.com/c/scvg82kuuns7",
     verified: true,
   },
-
 ];
